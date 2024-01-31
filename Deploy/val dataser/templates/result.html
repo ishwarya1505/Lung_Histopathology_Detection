@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LUNG HISTOPATHOLOGY CLASSIFICATION OUTPUT RESULT</title>
+</head>
+<style>
+  label
+{
+font-size: 20px;
+color:red;
+font-family:  'Times New Roman';
+}
+body
+  {
+    background: url(../static/image/gif7.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    min-height: 100vh;
+}
+  button
+{
+font-size: 20px;
+font-family:  wide latin;
+color:black;
+background-color: green;
+  box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+}
+#ss
+{
+font-size: 20px;
+color:#20fc03;
+background-color: yellow;
+font-family:  Times new roman;
+}
+h2
+{
+background-color: black;
+font-family: 'Times New Roman';
+font-size: 30px;
+letter-spacing: 3px;
+color:purple;
+text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+}
+
+h1
+{
+font-family: 'Times New Roman';
+font-size: 33px;
+font-weight:bold;
+letter-spacing: 3px;
+color:black;
+text-shadow: -1px 0 cyan, 0 2px cyan, 2px 0 cyan, 0 -1px cyan;
+}
+
+h3
+{
+font-family: 'Times New Roman';
+font-size: 33px;
+font-weight:bold;
+letter-spacing: 3px;
+color:yellow;
+}
+a
+{
+font-size: 20px;
+color:black ;
+font-family:  Times new roman;
+}
+
+
+</style>
+<body>
+
+
+<center><h2>LUNG HISTOPATHOLOGY CLASSIFICATION USING IMAGE CLASSIFICATION</h2></center><br><br><br><br>
+ <marquee direction="down"><center><b><h1>{{out}}</h1></b></center></marquee>
+
+<h3><a href="{% url 'home' %}">Go Back!!!</a></h3>
+
+
+</body>
+</html>
