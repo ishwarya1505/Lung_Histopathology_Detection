@@ -11,44 +11,79 @@ VGG-16
 Step by step implementation of VGG-16:
 
 Step 1: START
+
 Step 2: import all libraries
+
              INPUT:
+             
                  Data Augmentation: ImageDataGenerator ()
+                 
                  Parameter: rescale-1. /255, shear_range-0.2, zoom_range-0.2, 
                  horizontal_flip- True
+                 
 Step 3: Dataset
+
                  training_set ← train_datagen
+                 
                  test_set ← test_datagen
+                 
               Parameter: target_size(224,244), batch_size-32, class_mode-categorical
+              
 Step 4: to building a sequential model,
+
              model←Sequential()
+             
              Layers: C1: Conv1_2, 64 depth, 3x3
+             
                                  pool_size:2x2
+                                 
                           C2: Conv2_2, 128 depth, 3x3
+                          
                                  pool_size:2x2
+                                 
                           C3: Conv3_3, 256 depth, 3x3
+                          
                                  pool_size:2x2
+                                 
                           C4: Conv4_3, 512 depth, 3x3
+                          
                                  pool_size:2x2
+                                 
                           C5: Conv5_3, 512 depth, 3x3
+                          
                                  pool_size:2x2
+                                 
              Add ReLu activation to every layer to prevent all negative values from being
               passed onto subsequent layers.
+              
 Step 5:  send data to the fully connected layer in order to flatten the vector,
+
                              F1: 256→relu
+                             
                              F2: 128→relu
+                             
                              F3: 3→sigmoid
+                             
 Step 6: to compile the model,
+
                Parameter: optimizer→SGD, loss→categorical_crossentropy, 
                                   metrics→accuracy, loss, precision, recall
+                                  
 Step 7: to create a ModelCheckpoint(),
+
                    mc←ModelCheckpoint()
+                   
                Parameter: monitor, verbose
+               
 Step 8: to fit the model,
+
                    history← model.fit(steps_per_epoch-training_set.samples, 
                                     validation_steps-test_set.samples)
+                                    
 Step 9: observe train/test Accuracy, Loss, Precision & Recall using matplotlib
+
 Step 10: OUTPUT
+
            end
 
 
@@ -59,36 +94,64 @@ LeNet is an abbreviation for LeNet-5, which is a simple CNN that can respond to 
 Step by step implementation of LENET:
 
 Step 1: START
+
 Step 2: import all libraries
+
              INPUT:
+             
                  Data Augmentation: ImageDataGenerator ()
+                 
                  Parameter: rescale-1. /255, shear_range-0.2, zoom_range-0.2, horizontal_flip- True
+                 
 Step 3: Dataset
+
                  training_set ← train_datagen
+                 
                  test_set ← test_datagen
+                 
               Parameter: target_size(224,244), batch_size-32, class_mode-categorical
+              
 Step 4: to building a sequential model,
+
              Classifier←Sequential()
+             
              Layers: C1: Conv1_1, 32 depth, 3x3
+             
                                  pool_size:2x2
+                                 
                           C2: Conv2_1, 128 depth, 3x3
+                          
                                  pool_size:2x2
              Add ReLu activation to every layer to prevent all negative values from being passed onto subsequent layers.
+             
 Step 5:  send data to the fully connected layer in order to flatten the vector,
+
                              F1: 256→relu
+                             
                              F2: 3→softmax
+                             
 Step 6: to compile the model,
+
                Parameter: optimizer→Adam,	loss→categorical_crossentropy, 
                                      metrics→accuracy, loss, precision, recall
+                                     
                               Classifier←summary ()
+                              
 Step 7: to create a ModelCheckpoint(),
+
                    callbacks←ModelCheckpoint()
+                   
                Parameter: model_path, monitor, verbose
+               
 Step 8: to fit the model,
+
                    history← Classifier.fit(steps_per_epoch-training_set.samples, 
                                     validation_steps-test_set.samples)
+                                    
 Step 9: observe train/test Accuracy, Loss, Precision & Recall using matplotlib
+
 Step 10: OUTPUT
+
               End
 
 
@@ -100,47 +163,85 @@ The classifier is the name of the architecture and here the model is a sequentia
 Step by step implementation of VL architecture:
 
 Step 1: START
+
 Step 2: import all libraries
+
              INPUT:
+             
                  def Images_details_print_data ()
+                 
               Printing each key & values
+              
                      For k, v in data.items(): 
+                     
                      Print (k,v)
+                     
 Step 3: def Images_details(path)
+
                  files← take all images store in var 
+                 
                  data={} // empty dictionary 
+                 
             which contains image_count, max_width, max_height, min_width, min_height
+            
                  for f in files
+                 
                     im←to open the image
+                    
 Step 4: def plot_images() 
+
                     //prints 10 images of each category along with image_count, min_width, max_width, min_height, max_height
+                    
 Step 5:  Data Augmentation: ImageDataGenerator ()
+
                Parameter: rescale-1. /255, shear_range-0.2, zoom_range-0.2, horizontal_flip- True
+               
 Step 6: Dataset
+
                  training_set ← train_datagen
+                 
                  test_set ← test_datagen
+                 
               Parameter: target_size(224,244), batch_size-32, class_mode-categorical
+              
 Step 7: to building a sequential model,
+
              Classifier←Sequential()
+             
              Layers: C1: Conv1_1, 32 depth, 3x3
+             
                                  pool_size:2x2
+                                 
              Add ReLu activation to the conv layer to prevent all negative values from being passed onto subsequent layers.
+             
 Step 8:  send data to the fully connected layer in order to flatten the vector,
+
                              F1: 38→relu
+                             
                              F2: 3→softmax
+                             
 Step 9: to compile the model,
+
                Parameter: optimizer→Adam, loss→categorical_crossentropy, 
+               
                                   metrics→accuracy, loss, precision, recall
+                                  
                      Classifier←summary()
 Step 10: to create a ModelCheckpoint(),
+
                       mc←ModelCheckpoint()
+                      
                Parameter: model_path, monitor, verbose
+               
 Step 11: to fit the model,
+
                    history← Classifier.fit(steps_per_epoch-training_set.samples, 
                                     validation_steps-test_set.samples)
+                                    
 Step 12: observe train/test Accuracy, Loss, Precision & Recall using matplotlib
 
 Step 13: OUTPUT
+
            end
 
 DISCUSSION ON FINDINGS:
